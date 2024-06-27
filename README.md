@@ -1,4 +1,4 @@
-﻿# Reconhecimento de publico alvo com PCA e Kmeans
+﻿# Reconhecimento de público alvo com PCA e Kmeans
 
 
 ## <a> Motivação </a>
