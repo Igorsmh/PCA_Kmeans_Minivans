@@ -10,7 +10,6 @@ Uma das principais aplicações é na segmentação de clientes, usuários, forn
 Esses questionários com dezenas ou até centenas de respostas são difíceis de analisar para agrupar os segmentos semelhantes. O PCA ajuda justamente nesse ponto, reduzir a dimensionalidade das respostas a tais questionários melhoram muito a compreensão e aplicação da análise de aglomerados (clusterização).
 
 
-
 ## <a> Objeto de Estudo </a>
 
 Para esse estudo vou analisar uma empresa fictícia que está lançando um novo carro, uma espécie de microvan, e queremos conhecer o melhor público para iniciar as campanhas de marketing.
@@ -18,27 +17,64 @@ Para esse estudo vou analisar uma empresa fictícia que está lançando um novo 
 
 O principal método para detectar tais tendências é a pesquisa primária do consumidor, geralmente começando com grupos focais direcionados e prosseguindo para pesquisas de média e, eventualmente, de grande escala. Essas pesquisas servem a pelo menos dois propósitos: 
 - verificar os “desejos e necessidades” de um determinado grupo/nicho de consumidores
-- junto com os dados demográficos, tentar avaliar o perfil de quem gostou do conceito de microvan da Let's Ride
+- junto com os dados demográficos, tentar avaliar o perfil de quem gostou do conceito de microvan.
 
 As perguntas de negócio que queremos responder são:
 - Qual é o segmento alvo para este carro? 
 - Quais são os desejos e necessidades deste segmento?
 
-O problema é que, se fizermos uma análise de aglomerados com 30 features, o resultado não será muito inteligível e ficaria difícil depreender os perfis dos clientes. Podemos reduzir a dimensionalidade das features para agrupar as que possuem variância similar (PCA) e então avaliar qual foi o resultado dessa redução em termos de interesses dos clientes. Para avaliar a homegeneidade dos grupos, somente com clusterização, mas já com PCA conseguimos ter a junção de features com variância semelhante, o que, para respostas de questionários, serve como um agrupamento de perfis de respostas.
+O problema é que, se fizermos uma análise de aglomerados com 30 features, o resultado não será muito inteligível e ficaria difícil de entender os perfis dos clientes. Podemos reduzir a dimensionalidade das features para agrupar as que possuem variância similar (PCA) e então avaliar qual foi o resultado dessa redução em termos de interesses dos clientes. Para avaliar a homegeneidade dos grupos, somente com clusterização, mas já com PCA conseguimos ter a junção de features com variância semelhante, o que, para respostas de questionários, serve como um agrupamento de perfis de respostas.
 
 Assim como nos outros projetos, bancos, telefônicas, varejo, qualquer empresa que presta algum tipo de serviços e possui informações sobre seus clientes pode se beneficiar de análise de questionários de clientes e redução em componentes principais conforme iremos construir nesse projeto.
-
-
 
 Esse é um estudo de caso real (Grosse Pointe Associates and The “Microvan”) está disponível no livro "Modern Marketing Research: Concepts, Methods, and Cases" ISBN 1133188966
 
 
+## <a> Insights </a>
+- O cluster 1 possui a maior contagem de possiveis clientes que gostaram do conceito da microvan.
+- Não ser economico e gostar de carros grandes (essa dava para imaginar) parecem ser dois fatores muito importantes para gostar da microvan.
+- A idade de 40/45 anos tem o maior indice de aprovação do conceito da microvan.
+- Homens tem uma preferencia maior pela microvan.
+- Numero de filhos não foi um fator tão importante quanto esperava.
 
-## Metadados
+**Contplot clusters:**
+![alt text](reports/hist_mvliking0.png)
+![alt text](reports/hist_mvliking1.png)
+![alt text](reports/hist_mvliking2.png)
+
+**Boxplot clusters:**
+![alt text](reports/boxplot_cluster.png)
+
+**Boxplot da idade:**
+![alt text](reports/boxplot_age.png)
+
+**Boxplot dos clusters com filtro de idade:**
+![alt text](reports/boxplot_cluster+40_men.png)
+
+
+## <a> Conclusão </a>
+As características do cluster 1 combinado com os componentes mais fortes desse aglomerado trazem uma noção muito melhor de quais os tipos de clientes serão foco de uma campanha de marketing. Essa informações combinadas com as demográficas, mostram que o foco deve ser mais ligado ao sexo masculino, com idade acima de 40/45 anos, que querem gastar muito com carro (Economico) e gostam de muito espaço (N_carros_grandes negativo). Caso queiram e tenham possibilidades de um investimento maior é possivel também  é possivel usar os clientes do cluster 0 tambem.
+
+
+## <a> Estrutura do Projeto </a>
+- Data: Contem os arquivos de dados que serão usados para o projeto.
+- Notebooks: Contem os notebooks que serão usados para o projeto.
+- Reports: Contem as imagens salvas.
+
+## <a> Tecnologias usadas </a>
+Linguagem: 
+- Python
+
+Libs:
+- Gerenciamento de dados: Pandas.
+- Visualização de dados:  Matplotlib, seaborn, plotly.
+- Clusterização de dados: Scikit-learn.
+
+## <a> Metadados </a>
 
 Que monte de sopa de letras é essa!? Vamos às descrições (também chamado de dicionário de dados).
 
--subjnumb:  Índice do(a) potencial cliente.
+- subjnumb:  Índice do(a) potencial cliente.
 - mvliking: o quanto o(a) potencial cliente gostou do conceito da microvan.
 - kidtrans: Precisamos de um carro que ajude a transportar nossos filhos os seus amigos.
 - miniboxy: As minivans atuais são simplesmente muito quadradas e grandes.
