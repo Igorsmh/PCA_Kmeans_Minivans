@@ -46,6 +46,8 @@ Esse é um estudo de caso real (Grosse Pointe Associates and The “Microvan”)
 ![alt text](reports/boxplot_cluster.png)
 
 **Boxplot da idade:**
+
+
 ![alt text](reports/boxplot_age.png)
 
 **Boxplot dos clusters com filtro de idade:**
